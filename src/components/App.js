@@ -23,21 +23,6 @@ export class App extends Component {
 
   };
 
-  handleFormSubmit = (query) => {
-    this.setState({ query: query, page: 1, endOffList: false });
-    console.log(query);
-  }
-  componentDidMount() {
-  };
-
- 
-
-  loadMore = () => {
-    this.setState(prevState => ({
-      page: prevState.page + 1,
-    }));
-  }
-
   async componentDidUpdate(prevProps, prevState) {
     
     if (prevState.page !== this.state.page || prevState.query !== this.state.query) {
@@ -45,6 +30,21 @@ export class App extends Component {
       this.fetchImages(); 
     }
   }
+
+
+  handleFormSubmit = (query) => {
+    this.setState({ query: query, page: 1, endOffList: false, images: [], });
+    console.log(query);
+  }
+  componentDidMount() {
+  };
+
+  loadMore = () => {
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }));
+  }
+
 
 
   fetchImages = async () => {

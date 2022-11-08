@@ -18,7 +18,7 @@ export default class Searchbar extends Component  {
         e.preventDefault();
         if (this.state.query.trim() === '') {
             // alert('Введити поисковый запрос')
-            toast.error('Введити поисковый запрос')
+            toast.error('Please enter a search term')
             return;
         }
 
