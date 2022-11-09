@@ -24,8 +24,8 @@ export class App extends Component {
   };
 
   async componentDidUpdate(prevProps, prevState) {
-    
-    if (prevState.page !== this.state.page || prevState.query !== this.state.query) {
+
+    if (prevState.page !== this.state.page || prevState.query !== this.state.query ) {
 
       this.fetchImages(); 
     }
@@ -33,8 +33,11 @@ export class App extends Component {
 
 
   handleFormSubmit = (query) => {
+    if (this.state.query !== query) {
     this.setState({ query: query, page: 1, endOffList: false, images: [], });
     console.log(query);
+    }
+
   }
   componentDidMount() {
   };

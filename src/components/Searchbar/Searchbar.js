@@ -7,11 +7,15 @@ import PropTypes from 'prop-types';
 export default class Searchbar extends Component  {
     state = {
         query: '',
+
     }
 
     handleQueryChange = e => {
 
-     this.setState({ query: e.currentTarget.value.toLowerCase() });
+        
+
+        this.setState({ query: e.currentTarget.value.toLowerCase() });
+        
     }
     
     handleSubmit = (e) => {
@@ -22,6 +26,7 @@ export default class Searchbar extends Component  {
             return;
         }
 
+
         this.props.onSubmit(this.state.query);
     }
     
@@ -31,7 +36,7 @@ export default class Searchbar extends Component  {
         return (
         <SearchBar onSubmit={this.handleSubmit}>
             <SearchForm>
-                    <SearchFormBtn type="submit">
+                    <SearchFormBtn type="submit" >
                         <BsSearch />
                     <SearchFormBtnLabel>Search</SearchFormBtnLabel>
                 </SearchFormBtn>
